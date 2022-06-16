@@ -1,0 +1,43 @@
+Install Docker Engine on Ubuntu
+$ sudo apt install docker.io 
+ 
+ 
+#  After this, docker should start on system start.
+$ systemctl enable docker
+$ systemctl start docker
+sudo systemctl stop docker
+
+ https://askubuntu.com/questions/1409192/cannot-install-docker-desktop-on-ubuntu-22-04
+ # https://www.youtube.com/watch?v=_j7hRa68QPg&ab_channel=UnixHost
+# download first image
+hub.docker.com/_/hello-world
+$ docker pull hello-world
+$ docker run hello-world
+
+#How to fix docker: Got permission DENied while trying conect
+# just open terminal and type this command
+$ sudo chmod 666 /var/run/docker.sock
+
+# check is docker running 
+$ sudo systemctl status docker
+
+#find any image on repo hub.docker
+$ docker search selery
+$ docker pull  selery
+
+#show all running apps -images
+$ docker images
+$ docker context ls
+
+# Використовуйте таку команду, щоб зупинити службу Docker Engine:
+$ sudo systemctl stop docker docker.socket containerd
+
+#Залежно від вашої інсталяції Docker Engine може бути налаштований на автоматичний 
+запуск як системну службу під час запуску машини. Використовуйте таку команду, щоб вимкнути службу Docker Engine та запобігти її автоматичному запуску:
+$ sudo systemctl disable docker docker.socket containerd
+
+# запустити docker context useкоманду, щоб перемикатися між контекстами 
+# Docker Desktop та Docker Engine. Наприклад, використовуйте контекст «за замовчуванням» 
+# для взаємодії з Docker Engine;
+
+$ docker context use default
