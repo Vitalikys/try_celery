@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+# from try_celery.views import *
+from try_celery.views import Home, ContactView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Home.as_view(), name='home'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    # path('', include('try_celery.urls'))
 ]
