@@ -1,0 +1,63 @@
+Install Docker Engine on Ubuntu
+$ sudo apt install docker.io 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
+ 
+Volumes  = like a fixed disc space for  
+#  After this, docker should start on system start.
+$ systemctl enable docker
+$ systemctl start docker
+sudo systemctl stop docker
+systemctl stop docker.socket
+
+ https://askubuntu.com/questions/1409192/cannot-install-docker-desktop-on-ubuntu-22-04
+ # https://www.youtube.com/watch?v=_j7hRa68QPg&ab_channel=UnixHost
+# download first image
+hub.docker.com/_/hello-world
+$ docker pull hello-world
+$ docker run hello-world
+
+#How to fix docker: Got permission DENied while trying conect
+# just open terminal and type this command
+$ sudo chmod 666 /var/run/docker.sock
+
+# check is docker running 
+$ sudo systemctl status docker
+
+#find any image on repo hub.docker
+$ docker search selery
+$ docker pull  selery
+
+#show all running apps -images
+$ docker images
+$ docker context ls  =$ docker ps   # see what is running 
+$ docker container prune  # delete all stoped containers
+
+# Використовуйте таку команду, щоб зупинити службу Docker Engine:
+$ sudo systemctl stop docker            docker.socket containerd
+
+#Залежно від вашої інсталяції Docker Engine може бути налаштований на автоматичний 
+запуск як системну службу під час запуску машини. Використовуйте таку команду, щоб вимкнути службу Docker Engine та запобігти її автоматичному запуску:
+$ sudo systemctl disable docker docker.socket containerd
+
+# запустити docker context useкоманду, щоб перемикатися між контекстами 
+# Docker Desktop та Docker Engine. Наприклад, використовуйте контекст «за замовчуванням» 
+# для взаємодії з Docker Engine;
+
+$ docker context use default
+systemctl --user start docker-desktop
+
+
+
+
+----------KEYS FOR DOCKER
+gpg: /home/vitalii/.gnupg/trustdb.gpg: створено trustdb
+gpg: ключ 6CBF0068738F4686 позначено як ключ з необмеженою довірою
+gpg: створено каталог «/home/vitalii/.gnupg/openpgp-revocs.d»
+gpg: сертифікат відкликання збережено як «/home/vitalii/.gnupg/openpgp-revocs.d/9BDC70D46BB875D194DF407A6CBF0068738F4686.rev»
+відкритий і закритий ключі створено і підписано.
+
+pub   rsa3072 2022-06-16 [SC] [діє до: 2024-06-15]
+      9BDC70D46BB875D194DF407A6CBF0068738F4686
+uid                      vitalikys87 <vitalikys87@gmail.com>
+sub   rsa3072 2022-06-16 [E] [діє до: 2024-06-15]
+
