@@ -21,7 +21,7 @@ class ContactView(CreateView):
     def form_valid(self, form):
         form.save()
         # send(form.instance.email)   # use this for simply form
-        send_spam_email.delay(form.instance.email)  # delay - not waiting
+        send_spam_email.delay(form.instance.email)  # delay - not waiting, start celery
         return super().form_valid(form)
 
 

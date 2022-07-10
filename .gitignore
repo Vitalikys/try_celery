@@ -49,6 +49,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+https:/
 lib/
 lib64/
 parts/

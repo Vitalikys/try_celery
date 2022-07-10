@@ -122,14 +122,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # # smtp Simple Mail Transfer Protocol (SMTP, Простий Протокол Пересилання Пошти)
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'galkin.igor123123@gmail.com'
+# EMAIL_HOST_USER = 'g@gmail.com'
 # EMAIL_HOST_PASSWORD = 'moskal225'
 # EMAIL_PORT = 587
 
 EMAIL_HOST = 'smtp.ukr.net'
 EMAIL_PORT = 465  # 2525 #465
 EMAIL_HOST_USER = 'gonevich91@ukr.net'
-EMAIL_HOST_PASSWORD = 'OwVFOEwcLVyaJG9I'
+EMAIL_HOST_PASSWORD = 'KDvH0FA9iSe4aN6O'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 

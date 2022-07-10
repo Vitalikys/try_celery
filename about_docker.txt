@@ -1,3 +1,8 @@
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
+ssh autentication on github from Linux shell
+$ ls -al ~/.ssh           # checking
+$ ssh -T git@github.com
+
 Install Docker Engine on Ubuntu
 $ sudo apt install docker.io 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
@@ -46,6 +51,14 @@ $ sudo systemctl disable docker docker.socket containerd
 $ docker context use default
 systemctl --user start docker-desktop
 
+create image from dockerfile
+$ docker build -t try_celery_vit .
+
+ run cointainer new_name_container  based on  image ^ try_celery_vit
+$ docker run --name new_name_container try_celery_vit
+ same command to run but using port changing
+$ docker run --name new_name_container -p 8000:8000 -d try_celery_vit
+$  docker run -d -p 6379:6379 redis
 
 
 
@@ -61,3 +74,25 @@ pub   rsa3072 2022-06-16 [SC] [діє до: 2024-06-15]
 uid                      vitalikys87 <vitalikys87@gmail.com>
 sub   rsa3072 2022-06-16 [E] [діє до: 2024-06-15]
 
+
+https://django.fun/docs/celery/ru/5.1/getting-started/first-steps-with-celery/#application
+$ celery -A try_celery.tasks worker -l info     ERROR
+$ celery -A try_celery worker --loglevel=INFO  ОК
+$ celery -A try_celery beat -l info  запуск розкладу періодичності BEAT SCHEDULE
+
+https://flower.readthedocs.io/en/latest/install.html
+pip install flower, now we RUN:
+$ celery -A try_celery flower  --address=127.0.0.6 --port=5555
+шоб з консолі запускати app : python manage.py shell>>>
+$from tasks import add>>
+$my_task_retry.delay(55,66)         apply_async(()) та сама функція, відрізн аргументами
+$my_task_retry.apply_async((55,77), countdown=60) відкладено на 60с  delay() та сама функція, відрізн аргументами
+$add.apply_async((5,5), link=add.s(33))  # 10+33 result
+
+
+як добавити юзера щоб не вводити SUDO
+To create the docker group and add your user:
+1 Create the docker group. $ sudo groupadd docker.
+2 Add your user to the docker group. $ sudo usermod -aG docker $USER.
+3 Log out and log back in so that your group membership is re-evaluated. ...
+4 Verify that you can run docker commands without sudo .
